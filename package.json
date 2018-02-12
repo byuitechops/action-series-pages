@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/byuitechops/page-standards.git"
+    "url": "git+https://github.com/byuitechops/action-series-pages.git"
   },
   "author": "Zachary Williams",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/byuitechops/page-standards/issues"
+    "url": "https://github.com/byuitechops/action-series-pages/issues"
   },
-  "homepage": "https://github.com/byuitechops/page-standards#readme"
+  "homepage": "https://github.com/byuitechops/action-series-pages#readme"
 }

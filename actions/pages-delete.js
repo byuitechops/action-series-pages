@@ -10,6 +10,7 @@ module.exports = (course, page, callback) => {
     var doomedItems = [
         /guidelines\s*for\s*button/gi,
         /discussion\sforums/gi,
+        /how\s*to\s*understand\s*due\s*/gi
     ];
 
     /* The test returns TRUE or FALSE - action() is called if true */
@@ -20,7 +21,7 @@ module.exports = (course, page, callback) => {
         page.techops.delete = true;
         course.log('Pages Deleted', {
             'Title': page.title,
-            'ID': page.id
+            'ID': page.page_id
         });
         callback(null, course, page);
     }

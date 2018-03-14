@@ -24,7 +24,7 @@ module.exports = (course, page, callback) => {
 
     function action() {
         page.body = item.template + header + page.body;
-        course.log('Pages with Templates - Set templates', {
+        page.techops.log('Pages with Templates - Set templates', {
             'Title': page.title,
             'Body': page.body
         });

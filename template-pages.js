@@ -16,8 +16,13 @@ class TechOps {
         this.getTitle = getTitle;
         this.setTitle = setTitle;
         this.getID = getID;
+        this.logs = [];
         this.delete = false;
         this.type = 'Page';
+    }
+
+    log(title, details) {
+        this.logs.push({ title, details });
     }
 }
 
@@ -66,12 +71,19 @@ function buildPutObj(page) {
     };
 }
 
+function confirmLogs(course, page) {
+    page.techops.logs.forEach(log => {
+        course.log(log.title, log.details);
+    });
+}
+
 function deleteItem(course, page, callback) {
     canvas.delete(`/api/v1/courses/${course.info.canvasOU}/pages/${page.page_id}`, (err) => {
         if (err) {
             callback(err);
             return;
         }
+        confirmLogs(course, page);
         callback(null, null);
     });
 }
@@ -88,6 +100,7 @@ function putItem(course, page, callback) {
             callback(err);
             return;
         }
+        confirmLogs(course, page);
         callback(null, newItem);
     });
 }

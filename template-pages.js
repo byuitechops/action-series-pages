@@ -16,8 +16,13 @@ class TechOps {
         this.getTitle = getTitle;
         this.setTitle = setTitle;
         this.getID = getID;
+        this.logs = [];
         this.delete = false;
         this.type = 'Page';
+    }
+
+    log(title, details) {
+        this.logs.push({ title, details });
     }
 }
 

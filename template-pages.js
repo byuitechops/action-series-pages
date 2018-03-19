@@ -44,6 +44,10 @@ function getItems(course, callback) {
 
         /* Get all of the full pages with their html */
         asyncLib.map(items, getItem, (err, fullItems) => {
+            if (err) {
+                callback(err);
+                return;
+            }
 
             /* Give each item the TechOps helper class */
             fullItems.forEach(it => {

@@ -16,8 +16,25 @@ class TechOps {
         this.getTitle = getTitle;
         this.setTitle = setTitle;
         this.getID = getID;
+        this.logs = [];
         this.delete = false;
         this.type = 'Page';
+    }
+
+    log(title, details) {
+        this.logs.push({ title, details });
+    }
+
+    message(message) {
+        this.logs.push({ title: 'message', details: { message: message }});
+    }
+
+    warning(warning) {
+        this.logs.push({ title: 'warning', details: { warning: warning }});
+    }
+
+    error(error) {
+        this.logs.push({ error: error });
     }
 }
 
@@ -44,6 +61,10 @@ function getItems(course, callback) {
 
         /* Get all of the full pages with their html */
         asyncLib.map(items, getItem, (err, fullItems) => {
+            if (err) {
+                callback(err);
+                return;
+            }
 
             /* Give each item the TechOps helper class */
             fullItems.forEach(it => {

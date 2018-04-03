@@ -31,7 +31,7 @@ module.exports = (course, page, callback) => {
         console.log('PAGE BODY: ' + page.body);
     }
 
-    if (item != undefined) {
+    if (item !== undefined) {
         action();
     } else {
         callback(null, course, page);

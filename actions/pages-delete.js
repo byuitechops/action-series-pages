@@ -1,7 +1,10 @@
 module.exports = (course, page, callback) => {
+    //only add the platforms your grandchild should run in
+    var validPlatforms = ['online', 'pathway', 'campus'];
+    var validPlatform = validPlatforms.includes(course.settings.platform);
 
-    /* If the item is marked for deletion, do nothing */
-    if (page.techops.delete === true) {
+    /* If the item is marked for deletion or isn't a valid platform type, do nothing */
+    if (page.techops.delete === true || validPlatform !== true) {
         callback(null, course, page);
         return;
     }
@@ -10,7 +13,8 @@ module.exports = (course, page, callback) => {
     var doomedItems = [
         /guidelines\s*for\s*button/gi,
         /discussion\sforums/gi,
-        /how\s*to\s*understand\s*due\s*/gi
+        /how\s*to\s*understand\s*due\s*/gi,
+        /course\s*maintenance\s*log/gi,
     ];
 
     /* The test returns TRUE or FALSE - action() is called if true */

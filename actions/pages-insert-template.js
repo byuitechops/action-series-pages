@@ -1,4 +1,14 @@
 module.exports = (course, page, callback) => {
+    //only add the platforms your grandchild should run in
+    var validPlatforms = ['online', 'pathway', 'campus'];
+    var validPlatform = validPlatforms.includes(course.settings.platform);
+
+    /* If the item is marked for deletion or isn't a valid platform type, do nothing */
+    if (page.techops.delete === true || validPlatform !== true) {
+        callback(null, course, page);
+        return;
+    }
+    
     var pagesToChange = [{
                 title: /(Release Notes)/gi,
                 template: require('../page-templates/Release Notes.js')
@@ -28,8 +38,7 @@ module.exports = (course, page, callback) => {
         console.log('PAGE BODY: ' + page.body);
     }
 
-    var validPlatforms = ['online', 'pathway'];
-    if (item !== undefined || !validPlatforms.includes(course.settings.platform)) {
+    if (item !== undefined) {
         action();
     } else {
         callback(null, course, page);

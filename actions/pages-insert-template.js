@@ -1,6 +1,6 @@
 module.exports = (course, page, callback) => {
     //only add the platforms your grandchild should run in
-    var validPlatforms = ['online', 'pathway', 'campus'];
+    var validPlatforms = ['online', 'pathway'];
     var validPlatform = validPlatforms.includes(course.settings.platform);
 
     /* If the item is marked for deletion or isn't a valid platform type, do nothing */
@@ -10,21 +10,21 @@ module.exports = (course, page, callback) => {
     }
     
     var pagesToChange = [{
-                title: /(Release Notes)/gi,
-                template: require('../page-templates/Release Notes.js')
-            },
-            {
-                title: /(Setup for Course Instructor)/gi,
-                template: require('../page-templates/SetupNotes.js')
-            },
-            {
-                title: /(General Lesson Notes)/gi,
-                template: require('../page-templates/LessonNotes')
-            },
-            {
-                title: /(Setup Notes & Course Settings)/gi,
-                template: require('../page-templates/courseSetup')
-            }
+            title: /(Release Notes)/gi,
+            template: require('../page-templates/Release Notes.js')
+        },
+        {
+            title: /(Setup for Course Instructor)/gi,
+            template: require('../page-templates/SetupNotes.js')
+        },
+        {
+            title: /(General Lesson Notes)/gi,
+            template: require('../page-templates/LessonNotes')
+        },
+        {
+            title: /(Setup Notes & Course Settings)/gi,
+            template: require('../page-templates/courseSetup')
+        }
         ],
         item = pagesToChange.find(item => item.title.test(page.title));
 

@@ -10,7 +10,7 @@ module.exports = (course, page, callback) => {
     }
 
     /* Pages to be deleted, in LOWER case */
-    var doomedItems;
+    var doomedItems = [];
     if (course.settings.platform !== 'campus') {
         doomedItems = [
             /guidelines\s*for\s*button/gi,

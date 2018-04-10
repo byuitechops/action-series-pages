@@ -17,6 +17,9 @@ module.exports = (course, page, callback) => {
             /discussion\sforums/gi,
             /how\s*to\s*understand\s*due\s*/gi,
             /course\s*maintenance\s*log/gi,
+            /course\s*search\s*tool/gi,
+            /weekly\s*patterns?\s*(and|&)\s*expectations?\s*/gi,
+            /course\s*outline/gi,
         ];
     }
 

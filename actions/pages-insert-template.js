@@ -3,8 +3,6 @@ module.exports = (course, page, callback) => {
     var validPlatforms = ['online', 'pathway'];
     var validPlatform = validPlatforms.includes(course.settings.platform);
 
-
-
     var pagesToChange = [{
             title: /(Release Notes)/gi,
             template: require('../page-templates/Release Notes.js')

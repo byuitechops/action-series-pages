@@ -3,12 +3,8 @@ module.exports = (course, page, callback) => {
     var validPlatforms = ['online', 'pathway'];
     var validPlatform = validPlatforms.includes(course.settings.platform);
 
-    /* If the item is marked for deletion or isn't a valid platform type, do nothing */
-    if (page.techops.delete === true || validPlatform !== true) {
-        callback(null, course, page);
-        return;
-    }
-    
+
+
     var pagesToChange = [{
             title: /(Release Notes)/gi,
             template: require('../page-templates/Release Notes.js')
@@ -25,19 +21,27 @@ module.exports = (course, page, callback) => {
             title: /(Setup Notes & Course Settings)/gi,
             template: require('../page-templates/courseSetup')
         }
-        ],
-        item = pagesToChange.find(item => item.title.test(page.title));
+    ];
+    var item = pagesToChange.find(item => item.title.test(page.title));
 
     function action() {
         var header = '<h2 style="color:red">Old Content</h2>';
-        page.body = item.template + header + page.body;
+        page.body = item.template() + header + page.body;
         page.techops.log('Pages with Templates - Set templates', {
             'Title': page.title,
-            'Body': page.body
         });
+        callback(null, course, page);
     }
 
-    if (item !== undefined) {
+    /* If the item is marked for deletion or isn't a valid platform type, do nothing */
+    // if (page.techops.delete === true || validPlatform !== true) {
+    //     callback(null, course, page);
+    //     return;
+    // }
+
+    if (item !== undefined &&
+        page.techops.delete !== true &&
+        validPlatform === true) {
         action();
     } else {
         callback(null, course, page);

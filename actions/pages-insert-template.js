@@ -33,12 +33,7 @@ module.exports = (course, page, callback) => {
         callback(null, course, page);
     }
 
-    /* If the item is marked for deletion or isn't a valid platform type, do nothing */
-    // if (page.techops.delete === true || validPlatform !== true) {
-    //     callback(null, course, page);
-    //     return;
-    // }
-
+    /* If the item not undefined, not marked for deletion, and is a valid platform type, do action() */
     if (item !== undefined &&
         page.techops.delete !== true &&
         validPlatform === true) {

@@ -5,6 +5,7 @@ const asyncLib = require('async');
 /* Actions */
 var actions = [
     require('./actions/pages-delete.js'),
+    require('./actions/pages-insert-template.js'),
 ];
 
 class TechOps {

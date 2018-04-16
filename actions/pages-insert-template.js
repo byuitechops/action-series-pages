@@ -35,7 +35,6 @@ module.exports = (course, page, callback) => {
             'Title': page.title,
             'Body': page.body
         });
-        console.log('PAGE BODY: ' + page.body);
     }
 
     if (item !== undefined) {

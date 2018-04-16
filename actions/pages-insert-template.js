@@ -18,7 +18,7 @@ module.exports = (course, page, callback) => {
             template: require('../page-templates/LessonNotes')
         },
         {
-            title: /(Setup Notes & Course Settings)/gi,
+            title: /(Setup Notes & Course Settings)|(Setup Notes for Development Team)/gi,
             template: require('../page-templates/courseSetup')
         }
     ];

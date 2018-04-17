@@ -13,11 +13,11 @@ module.exports = (course, page, callback) => {
         },
         {
             title: /(General Lesson Notes)/gi,
-            template: require('../page-templates/LessonNotes')
+            template: require('../page-templates/LessonNotes.js')
         },
         {
             title: /(Setup Notes & Course Settings)|(Setup Notes for Development Team)/gi,
-            template: require('../page-templates/courseSetup')
+            template: require('../page-templates/courseSetup.js')
         }
     ];
     var item = pagesToChange.find(item => item.title.test(page.title));

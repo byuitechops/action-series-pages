@@ -49,7 +49,7 @@ module.exports = (course, page, callback) => {
             callback(null, course, page);
         }
     } catch (e) {
-        course.error(e);
+        course.error(new Error(e));
         callback(null, course, page);
     }
 };

@@ -24,7 +24,7 @@ module.exports = (course, page, callback) => {
         var item = pagesToChange.find(item => item.title.test(page.title));
 
         function action() {
-            var header = '<h2 style="color:red">Old Content</h2>';
+            var header = '<h2 style="color: red;">Old Content</h2>';
             page.body = item.template() + header + page.body;
             page.techops.log('Pages with Templates - Set templates', {
                 'Title': page.title,

@@ -143,6 +143,7 @@ function getID(item) {
 }
 
 module.exports = {
+    prefix: 'pages',
     actions: actions,
     getItems: getItems,
     putItem: putItem,

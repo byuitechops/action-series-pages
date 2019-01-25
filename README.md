@@ -32,7 +32,7 @@ None
 
 ## Process
 
-This module uses the pages "template" and runs an asynchronous forEach on page. The template provides methods and data used to complete the action-series model.
+This module uses the pages "template" and runs an asynchronous forEach on each page. The template provides methods and data used to complete the action-series model.
 
 ## Log Categories
 

@@ -36,8 +36,8 @@ This module uses the pages "template" and runs an asynchronous forEach on each p
 
 ## Log Categories
 
-Please review the documentation for each file found in the "page-templates" directory.
+Please review the documentation for each file found in the "actions" directory.
 
 ## Requirements
 
-Please review the documentation for each file found in the "page-templates" directory.
+Please review the documentation for each file found in the "actions" directory.
